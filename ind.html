@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies Site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loader" class="loader"></div>
+
+    <div class="topnav">
+        <a class="active" href="#">MOVIEHUB</a>
+        <div class="search-container">
+            <form role="search" id="form">
+                <input type="search" id="query" name="q" placeholder="Search...">
+            </form>
+        </div>
+        <div class="auth-buttons" id="authButtons">
+            <button onclick="openSignupModal()">Sign Up</button>
+            <button onclick="openLoginModal()">Login</button>
+        </div>
+        <div id="logoutButton" style="display: none;">
+            <button onclick="logout()">Logout</button>
+
+        </div>
+    </div>
+
+    <section id="section"></section>
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeReviewModal">&times;</span>
+            <h2>Add Review for <span id="reviewMovieTitle"></span></h2>
+            <input type="text" id="reviewerName" placeholder="Your Name" required><br><br>
+            <div class="star-rating" id="starRating">
+    <span data-star="1">&#9733;</span>
+    <span data-star="2">&#9733;</span>
+    <span data-star="3">&#9733;</span>
+    <span data-star="4">&#9733;</span>
+    <span data-star="5">&#9733;</span>
+</div>
+<input type="hidden" id="reviewRating" required>
+<br><br>
+
+            <textarea id="reviewComment" rows="4" placeholder="Your Review" required></textarea><br><br>
+            <button id="submitReviewBtn">Submit Review</button>
+        </div>
+    </div>
+
+    <!-- View Reviews Modal -->
+    <div id="viewReviewsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeViewReviewsModal">&times;</span>
+            <h2>Reviews for <span id="viewMovieTitle"></span></h2>
+            <div id="reviewsList"></div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeSignupModal">&times;</span>
+            <h2>Sign Up</h2>
+            <div id="signupError" class="error"></div>
+            <input type="text" id="signupUsername" placeholder="Username"><br>
+            <input type="email" id="signupEmail" placeholder="Email"><br>
+            <input type="password" id="signupPassword" placeholder="Password"><br>
+            <button id="signupBtn">Register</button>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLoginModal">&times;</span>
+            <h2>Login</h2>
+            <div id="loginError" class="error"></div>
+            <input type="email" id="loginEmail" placeholder="Email"><br>
+            <input type="password" id="loginPassword" placeholder="Password"><br>
+            <button id="loginBtn">Login</button>
+        </div>
+    </div>
+
+    <script src="scr.js"></script>
+    <!-- ⭐ Recommended Section -->
+<section id="recommendationSection" style="margin: 30px 20px; display: none;">
+    <h2>Because you liked...</h2>
+    <div id="recommendationContainer" class="horizontal-scroll"></div>
+</section>
+
+</body>
+</html>
